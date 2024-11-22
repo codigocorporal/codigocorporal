@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+1<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -113,9 +113,12 @@
   <div class="question-container active" id="question1">
     <h3>Informe seus dados para a consulta on-line</h3>
     <p><input type="text" id="nome" placeholder="Digite seu nome"></p>
-    <p><input type="number" id="idade" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric" placeholder="Digite sua idade"></p>
-    <p><input type="number" id="peso" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric" placeholder="Digite seu peso em kg"></p>
-    <p><input type="number" id="altura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric" placeholder="Digite sua altura em cm"></p>
+    <p><input type="number" id="idade" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"
+        placeholder="Digite sua idade"></p>
+    <p><input type="number" id="peso" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"
+        placeholder="Digite seu peso em kg"></p>
+    <p><input type="number" id="altura" oninput="this.value = this.value.replace(/[^0-9]/g, '')" inputmode="numeric"
+        placeholder="Digite sua altura em cm"></p>
     <button class="option" onclick="nextQuestion(1)">Próxima</button>
   </div>
 
@@ -295,17 +298,18 @@
         recommendation = 'Detox';
       }
 
-      // Exibir o resultado da recomendação
-      // Exibir o resultado da recomendação
-      if (recommendation) {
-        const nomeCompleto = responses['nome']; // Recupera o nome completo do usuário
-        const primeiroNome = nomeCompleto.split(' ')[0]; // Pega apenas o primeiro nome
-        document.getElementById('result').style.display = 'block';
-        document.getElementById('result').innerHTML = `
-      <h3>Sugestão de Dieta: ${recommendation}</h3>
-      <h3>Parabéns, ${primeiroNome}!</h3><p>Seu plano de dieta foi personalizado com sucesso.</p>
-    `;
+      // Se nenhuma condição for atendida, define "Detox" como padrão
+      if (!recommendation) {
+        recommendation = 'Detox';
       }
+
+      // Exibir o resultado da recomendação
+      const nomeCompleto = responses['nome']; // Recupera o nome completo do usuário
+      const primeiroNome = nomeCompleto.split(' ')[0]; // Pega apenas o primeiro nome
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').innerHTML = `
+        <h3>Sugestão de Dieta: ${recommendation}</h3>
+        <h3>Parabéns, ${primeiroNome}!</h3><p>Seu plano de dieta foi personalizado com sucesso.</p>`;
     }
   </script>
 
